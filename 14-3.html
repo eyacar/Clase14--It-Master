@@ -22,14 +22,17 @@ var quitados = [];
 function agregar(){
     var n = document.getElementById("numero").value
     if (n.length<=4 && n>=0 && n.length>0){
-        n1 = "<li>" + n + "</li>"
+        n1 = "<li>" + n + "</li>" + "<br>"
         numeros.push(n1);
         quitados.push(n);
         document.getElementById("p").style.color = "green";
         document.getElementById("p").style.fontSize = "30px";
         document.getElementById("p").innerHTML = "Agregado Correctamente";
-        document.getElementById("array").innerHTML = numeros;
+        j = numeros.join('')
+        document.getElementById("array").innerHTML = j;
+        document.getElementById("array").style.fontSize = "20px";
         document.getElementById("form").reset()
+        
     }
     else if (!(n.length>0)){
         alert("ERROR NO PUSO NUMEROS")
@@ -42,17 +45,22 @@ function agregar(){
     }
 }
 function deshacer(){
+    if (numeros.length>0){
         var q = quitados[quitados.length - 1]
         numeros.pop(numeros)
         quitados.pop(quitados)
-        document.getElementById("array").innerHTML = numeros;
+        j = numeros.join('')
+        document.getElementById("array").innerHTML = j;
+        document.getElementById("array").style.fontSize = "20px";
         document.getElementById("p").style.color = "purple";
         document.getElementById("p").style.fontSize = "30px";
         document.getElementById("p").innerHTML = "El numero: "+q+" Fue quitado Correctamente";
-
-        
-         
-
+    }
+    else if (!(numeros.length>0)){
+        alert("ERROR NO PUSO NUMEROS")
+    }
+    
 }
+
 </script>
 </html>
