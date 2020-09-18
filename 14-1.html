@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+    <label for="">Nombre (Debe contener minimo 3 caracteres)</label>
+    <input type="text" name="" id="nombre" placeholder="Put your Name ...">
+    <label for="">Email</label>
+    <input type="text" name="" id="email" placeholder="Put your Email ...">
+    <input type="button" value="Validar" onclick="validar()">
+    </form>
+    <p id="p"></p>
+
+    <script>
+        function validar(){
+        var n = document.getElementById("nombre").value
+        var e = document.getElementById("email").value
+        if (n.length >3 && e.indexOf("@") > -1 ){
+            document.getElementById("p").style.color = "green";
+            document.getElementById("p").innerHTML = "Fue correcto"
+        }
+        else {
+            document.getElementById("p").style.color = "red";
+            document.getElementById("p").innerHTML = "No tuviste Exito"
+        }
+        }
+    </script>
+</body>
+</html>

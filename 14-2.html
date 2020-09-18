@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action=""> 
+        <label for=""> Nombre</label>
+        <input type="text" name="" id="nombre">
+        <label for="">Como nos conocio?</label>
+        <select name="" id="select">
+        <option value="0">Elegir...</option>
+        <option value="1">Por Tv</option>
+        <option value="2">Por Web</option>
+        <option value="3">Reconmendación</option>
+        </select>
+        <input type="checkbox" name="checkbox">
+        <label for="">Aceptar</label>
+        <input type="button" value="Aceptar" onclick="aceptar()">
+    </form>
+    <p id="p"></p>
+    <script>
+        function aceptar(){
+        var elegido = document.getElementById("select").value
+        var nombre = document.getElementById("nombre").value
+        var checkbox = document.getElementsByName("checkbox")
+        if (checkbox[0].checked && nombre.length >= 4 && elegido > 0){
+            document.getElementById("p").style.color = "green";
+            document.getElementById("p").innerHTML = "Fue correcto"
+        }
+        else {
+            document.getElementById("p").style.color = "red";
+            document.getElementById("p").innerHTML = "Error"
+            alert("ERROR......")
+        }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="form">
+        <label for="">Ponga sus numeros de la Loteria: </label>
+        <input type="number" name="" id="numero">
+        <input type="button" onclick="agregar()" value="Agragar">
+        <input type="button" onclick="deshacer()" value="Deshacer">
+        <p id="p"></p>
+    </form>
+    <h1>Sus numeros son:</h1>
+    <ul id="array"></ul>
+</body>
+<script>
+var numeros = [];
+var quitados = [];
+function agregar(){
+    var n = document.getElementById("numero").value
+    if (n.length<=4 && n>=0 && n.length>0){
+        n1 = "<li>" + n + "</li>"
+        numeros.push(n1);
+        quitados.push(n);
+        document.getElementById("p").style.color = "green";
+        document.getElementById("p").style.fontSize = "30px";
+        document.getElementById("p").innerHTML = "Agregado Correctamente";
+        document.getElementById("array").innerHTML = numeros;
+        document.getElementById("form").reset()
+    }
+    else if (!(n.length>0)){
+        alert("ERROR NO PUSO NUMEROS")
+    }
+    else {
+        document.getElementById("p").style.color = "red";
+        document.getElementById("p").style.fontSize = "20px";
+        document.getElementById("p").innerHTML = "EL NUMERO NO DEBE CONTENER MAS DE 4 CARACTERES NI SER NEGATIVO";
+        document.getElementById("form").reset()
+    }
+}
+function deshacer(){
+        var q = quitados[quitados.length - 1]
+        numeros.pop(numeros)
+        quitados.pop(quitados)
+        document.getElementById("array").innerHTML = numeros;
+        document.getElementById("p").style.color = "purple";
+        document.getElementById("p").style.fontSize = "30px";
+        document.getElementById("p").innerHTML = "El numero: "+q+" Fue quitado Correctamente";
+
+        
+         
+
+}
+</script>
+</html>
